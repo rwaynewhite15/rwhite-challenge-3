@@ -19,10 +19,10 @@ function writePassword() {
 }
 function generatePassword() {
   var password = "";
-  var passwordLength = prompt("How many characters would you like your password to be?")
+  var passwordLength = prompt("How many characters would you like your password to be?");
   if (passwordLength < 8 || passwordLength > 128) {
-    alert("Password length must be between 8 and 128 characters!")
-    return password
+    alert("Password length must be between 8 and 128 characters!");
+    return password;
   }
   var useLowerCase = confirm("Would you like to use lowercase letters?")
   var useUpperCase = confirm("Would you like to use uppercase letters?")
@@ -41,6 +41,11 @@ function generatePassword() {
   if (useSpecial === true) {
     charTypes.push(specialChar)
   }
+  if (useLowerCase === false && useUpperCase === false && useNumeric === false && useSpecial === false) {
+    alert("Please select at least one character type!");
+    return password;
+  }
+  
 
   /*var random = Math.floor(Math.random() * number.length)
   alert(random)*/
